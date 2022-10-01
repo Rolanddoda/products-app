@@ -1,5 +1,10 @@
+<script setup lang="ts">
+// Components
+import MainLayout from "@/layouts/main-layout/MainLayout.vue";
+</script>
+
 <template>
-  <div class="overview">
+  <MainLayout title="Products">
     <h1>Overview</h1>
-  </div>
+  </MainLayout>
 </template>
