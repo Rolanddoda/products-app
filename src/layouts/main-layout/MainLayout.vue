@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useSlots } from "vue";
+import { useSlots, watch, ref } from "vue";
 // Components
 import WrapperCard from "./WrapperCard.vue";
 import LineMdLoadingLoopIcon from "./LoadingLoopIcon.vue";
 
-defineProps<{
+const props = defineProps<{
   title?: string;
   loading?: boolean;
 }>();
@@ -14,6 +14,22 @@ const emit = defineEmits<{
 }>();
 
 const slots = useSlots();
+
+const delayedLoading = ref(false);
+let timeout: number;
+watch(
+  () => props.loading,
+  (newVal) => {
+    if (!newVal) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        delayedLoading.value = false;
+      }, 1000);
+    } else {
+      delayedLoading.value = true;
+    }
+  }
+);
 </script>
 
 <template>
@@ -37,6 +53,11 @@ const slots = useSlots();
       </div>
     </WrapperCard>
 
-    <WrapperCard> <slot /> </WrapperCard>
+    <WrapperCard>
+      <div v-if="delayedLoading" class="p-3">
+        <progress class="progress progress-accent"></progress>
+      </div>
+      <slot />
+    </WrapperCard>
   </div>
 </template>
