@@ -1,6 +1,6 @@
 export default {
-  path: "/:id",
-  name: "product-detail",
+  path: '/:id',
+  name: 'product-detail',
   props: true,
-  component: () => import("./DetailPage.vue"),
-};
+  component: () => import('./DetailPage.vue'),
+}

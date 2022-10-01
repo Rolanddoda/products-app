@@ -1,10 +1,10 @@
 <script setup lang="ts">
 // Types
-import type { Product } from "@/api/modules/types";
+import type { Product } from '@/api/modules/types'
 
 defineProps<{
-  product: Product;
-}>();
+  product: Product
+}>()
 </script>
 
 <template>
@@ -44,7 +44,9 @@ defineProps<{
       <h1 class="text-2xl font-bold text-white">${{ product.price }}</h1>
     </div>
 
-    <div class="absolute -top-2 -left-2 border border-accent badge badge-ghost badge-lg text-white p-3">
+    <div
+      class="absolute -top-2 -left-2 border border-accent badge badge-ghost badge-lg text-white p-3"
+    >
       {{ product.category }}
     </div>
   </router-link>

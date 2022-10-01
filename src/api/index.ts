@@ -1,1 +1,1 @@
-export * from "./modules/products";
+export * from './modules/products'

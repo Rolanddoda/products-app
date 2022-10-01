@@ -1,35 +1,35 @@
 <script setup lang="ts">
-import { useSlots, watch, ref } from "vue";
+import { useSlots, watch, ref } from 'vue'
 // Components
-import WrapperCard from "./WrapperCard.vue";
-import LineMdLoadingLoopIcon from "./LoadingLoopIcon.vue";
+import WrapperCard from './WrapperCard.vue'
+import LineMdLoadingLoopIcon from './LoadingLoopIcon.vue'
 
 const props = defineProps<{
-  title?: string;
-  loading?: boolean;
-}>();
+  title?: string
+  loading?: boolean
+}>()
 
 const emit = defineEmits<{
-  (name: "reload"): void;
-}>();
+  (name: 'reload'): void
+}>()
 
-const slots = useSlots();
+const slots = useSlots()
 
-const delayedLoading = ref(false);
-let timeout: number;
+const delayedLoading = ref(false)
+let timeout: number
 watch(
   () => props.loading,
   (newVal) => {
     if (!newVal) {
-      clearTimeout(timeout);
+      clearTimeout(timeout)
       timeout = setTimeout(() => {
-        delayedLoading.value = false;
-      }, 1000);
+        delayedLoading.value = false
+      }, 1000)
     } else {
-      delayedLoading.value = true;
+      delayedLoading.value = true
     }
   }
-);
+)
 </script>
 
 <template>

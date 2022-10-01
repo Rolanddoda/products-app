@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import * as apiTo from "@/api";
+import * as apiTo from '@/api'
 // Libraries
-import { useApi } from "@roland1993/api";
+import { useApi } from '@roland1993/api'
 // Components
-import MainLayout from "@/layouts/main-layout/MainLayout.vue";
-import BackArrow from "./BackArrow.vue";
+import MainLayout from '@/layouts/main-layout/MainLayout.vue'
+import BackArrow from './BackArrow.vue'
 // Types
-import type { Product } from "@/api/modules/types";
+import type { Product } from '@/api/modules/types'
 
 const props = defineProps<{
-  id: string;
-}>();
+  id: string
+}>()
 
 const {
   loading,
   data: product,
   call: getProduct,
-} = useApi<Product>(() => apiTo.getProduct(+props.id));
+} = useApi<Product>(() => apiTo.getProduct(+props.id))
 </script>
 
 <template>
-  <MainLayout class="detail" :loading="loading" @reload='getProduct'>
+  <MainLayout class="detail" :loading="loading" @reload="getProduct">
     <template #toolbar-left>
       <router-link to="/" class="flex items-center gap-1">
         <BackArrow /> <span>Go back to the store</span>

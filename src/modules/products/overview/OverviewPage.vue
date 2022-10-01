@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import * as apiTo from "@/api";
+import * as apiTo from '@/api'
 // Libraries
-import { useApi } from "@roland1993/api";
+import { useApi } from '@roland1993/api'
 // Components
-import MainLayout from "@/layouts/main-layout/MainLayout.vue";
-import ProductCard from "./ProductCard.vue";
+import MainLayout from '@/layouts/main-layout/MainLayout.vue'
+import ProductCard from './ProductCard.vue'
 // Types
-import type { Product } from "@/api/modules/types";
+import type { Product } from '@/api/modules/types'
 
 const {
   loading,
   data: products,
   call: getProducts,
-} = useApi<Product[]>(apiTo.getProducts);
+} = useApi<Product[]>(apiTo.getProducts)
 </script>
 
 <template>
