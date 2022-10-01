@@ -12,7 +12,7 @@ const {
   loading,
   data: products,
   call: getProducts,
-} = useApi<Product[]>(apiTo.getProduct);
+} = useApi<Product[]>(apiTo.getProducts);
 </script>
 
 <template>

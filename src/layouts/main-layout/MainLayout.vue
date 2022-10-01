@@ -2,7 +2,7 @@
 import { useSlots } from "vue";
 // Components
 import WrapperCard from "./WrapperCard.vue";
-import LineMdLoadingLoopIcon from "./LineMdLoadingLoop.vue";
+import LineMdLoadingLoopIcon from "./LoadingLoopIcon.vue";
 
 defineProps<{
   title?: string;

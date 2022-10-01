@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <router-link
-    :to="`/products/${product.id}`"
+    :to="`/${product.id}`"
     class="relative grid grid-rows-[250px,200px,50px] gap-4 text-center p-5 bg-primary-content rounded-lg shadow-xl min-w-[300px] max-w-[450px] hover:scale-105 transition-all duration-300 hover:text-white hover:z-10"
   >
     <div>
